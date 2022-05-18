@@ -9,7 +9,7 @@ $mysql = new mysqli('localhost', 'root', 'root', 'car_shop');
 $res = $mysql->query("SELECT * FROM `sales` WHERE `sale_id`='$sale_id'")->fetch_assoc();
 $mysql->close(); ?>
 <form method="post" action="update_sale.php?sale_id=<?= $sale_id ?>">
-    <input type="text" placeholder="Car id" name="car_id" value="<?= $res['car_id']?>">
+    <input type="text" placeholder="Car sale id" name="car_sale_id" value="<?= $res['car_sale_id']?>">
     <input type="text" placeholder="Employee id" name="employee_id" value="<?= $res['employee_id']?>">
     <input type="text" placeholder="Buyer id" name="buyer_id" value="<?= $res['buyer_id']?>">
     <input type="text" placeholder="Date" name="date" value="<?= $res['date']?>">

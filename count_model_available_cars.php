@@ -5,8 +5,9 @@
 <body>
 <?php
 $mysql = new mysqli('localhost', 'root', 'root', 'car_shop');
-$res = $mysql->query("select count(*) as qty, name, model, price, fuel_type, body, engine_capacity, release_date from cars join categories on categories.category_id = cars.category_id join car_names on car_names.name_id = cars.name_id
-where car_id not in (select car_id from sales)
+$res = $mysql->query("select count(*) as qty, name, model, price, fuel_type, body, engine_capacity, release_date 
+from car_sales join cars on car_sales.car_id = cars.car_id join categories on categories.category_id = cars.category_id join car_names on car_names.name_id = cars.name_id
+where car_sale_id not in (select car_sale_id from sales)
 group by name, model, price, fuel_type, body, engine_capacity, release_date");
 $posts = array();
 while ($row = $res->fetch_assoc())
